@@ -10,14 +10,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.example.eShop.Entity.UserEntity;
-import com.example.eShop.Repository.UserSignupRepo;
+import com.example.eShop.Repository.UserRepo;
 
-@Service
-public class CustomUserDetailsService implements UserDetailsService{
+@Service("userDetailsServiceImpl")
+public class UserDetailsServiceImpl implements UserDetailsService{
 
-    private final UserSignupRepo repo;
+    private final UserRepo repo;
 
-    public CustomUserDetailsService(UserSignupRepo repo){
+    public UserDetailsServiceImpl(UserRepo repo){
         this.repo = repo;
     }
 

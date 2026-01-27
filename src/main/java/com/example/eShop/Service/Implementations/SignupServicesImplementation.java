@@ -7,17 +7,17 @@ import org.springframework.stereotype.Service;
 import com.example.eShop.Entity.UserEntity;
 import com.example.eShop.Exception.UserExceptions.UsernameAlreadyExistsException;
 import com.example.eShop.Model.User;
-import com.example.eShop.Repository.UserSignupRepo;
+import com.example.eShop.Repository.UserRepo;
 import com.example.eShop.Service.Interfaces.SignupServices;
 
 @Service
 public class SignupServicesImplementation implements SignupServices{
 
-    private final UserSignupRepo userRepo;
+    private final UserRepo userRepo;
     private final ModelMapper modelMapper;
     private final BCryptPasswordEncoder encoder;
 
-    public SignupServicesImplementation(UserSignupRepo userRepo, ModelMapper modelMapper, BCryptPasswordEncoder encoder){
+    public SignupServicesImplementation(UserRepo userRepo, ModelMapper modelMapper, BCryptPasswordEncoder encoder){
         this.userRepo = userRepo;
         this.modelMapper = modelMapper;
         this.encoder = encoder;
@@ -31,5 +31,7 @@ public class SignupServicesImplementation implements SignupServices{
         else throw new UsernameAlreadyExistsException("User with this userName already exists.");
         return "User Created Successfully";
     }
+
+    
 
 }
