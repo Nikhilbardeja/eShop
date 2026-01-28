@@ -13,13 +13,19 @@ import com.example.eShop.Model.Product;
 import com.example.eShop.Service.Interfaces.ProductServices;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/admin")
 public class ProductController {
 
     private final ProductServices productServices;
 
+
     public ProductController(ProductServices productServices){
         this.productServices = productServices; // constructor dependency injection
+    }
+
+    @GetMapping("/test")
+    public String test(){
+        return "Admin Working";
     }
 
     @PostMapping("/create")

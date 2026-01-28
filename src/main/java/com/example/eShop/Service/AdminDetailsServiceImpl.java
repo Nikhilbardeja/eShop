@@ -25,6 +25,6 @@ public class AdminDetailsServiceImpl implements UserDetailsService {
         AdminEntity entity = adminRepo.findByUserName(username);
 
         if (entity == null) throw new UsernameNotFoundException("Username not found");
-        return new User(entity.getUserName(), entity.getPassword(), List.of(new SimpleGrantedAuthority("ADMIN")));
+        return new User(entity.getUserName(), entity.getPassword(), List.of(new SimpleGrantedAuthority("ROLE_ADMIN")));
     }
 }

@@ -26,6 +26,6 @@ public class UserDetailsServiceImpl implements UserDetailsService{
         UserEntity entity = repo.findByUserName(username);
 
         if (entity == null) throw new UsernameNotFoundException("Username not found");
-        return new User(entity.getUserName(), entity.getPassword(), List.of(new SimpleGrantedAuthority("USER")));
+        return new User(entity.getUserName(), entity.getPassword(), List.of(new SimpleGrantedAuthority("ROLE_USER")));
     }
 }
