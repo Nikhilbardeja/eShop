@@ -19,7 +19,7 @@ public class AuthController {
         this.signup = signup;
     }
 
-    @PostMapping("/user")
+    @PostMapping("/user/sinup")
     public String user(@RequestBody User user){
         return signup.userSignup(user);
     }
