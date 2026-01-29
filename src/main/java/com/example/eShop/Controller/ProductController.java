@@ -13,7 +13,7 @@ import com.example.eShop.Model.Product;
 import com.example.eShop.Service.Interfaces.ProductServices;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/admin/product") // it makes it only accessible to admin role
 public class ProductController {
 
     private final ProductServices productServices;
@@ -22,7 +22,7 @@ public class ProductController {
     public ProductController(ProductServices productServices){
         this.productServices = productServices; // constructor dependency injection
     }
-
+    
     @GetMapping("/test")
     public String test(){
         return "Admin Working";
@@ -43,7 +43,7 @@ public class ProductController {
         return productServices.delete(id);
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/get/{id}")
     public Product get(@PathVariable Integer id){
         return productServices.get(id);
     }

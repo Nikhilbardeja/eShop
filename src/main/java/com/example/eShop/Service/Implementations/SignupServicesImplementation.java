@@ -27,7 +27,7 @@ public class SignupServicesImplementation implements SignupServices{
     public String userSignup(User user) {
         user.setPassword(encoder.encode(user.getPassword()));
         
-        if(!userRepo.existsByUserName(user.getUserName())) userRepo.save(modelMapper.map(user, UserEntity.class));
+        if(!userRepo.existsByUserName(user.getUsername())) userRepo.save(modelMapper.map(user, UserEntity.class));
         else throw new UsernameAlreadyExistsException("User with this userName already exists.");
         return "User Created Successfully";
     }
